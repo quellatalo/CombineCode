@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Quellatalo.CombineCode.CSharp</id>
+    <version>$version$</version>
+    <title>Quellatalo.CombineCode.CSharp</title>
+    <owners>Quellatalo Nin</owners>
+    <projectUrl>https://github.com/quellatalo/CombineCode</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>
+    </releaseNotes>
+  </metadata>
+</package>

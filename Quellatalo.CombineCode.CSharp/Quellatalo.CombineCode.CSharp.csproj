@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../Core.props" />
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>0.0.1</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/quellatalo</PackageProjectUrl>
+    <PackageTags>scan;collect;combine;multiple;cs;csharp;source;code;files;into one;file;</PackageTags>
+    <Description>Provides libraries to combine written local code into one file for online submission.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="."/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Quellatalo Nin</Authors>
+    <Copyright>quellatalo@gmail.com</Copyright>
+    <RepositoryUrl>https://github.com/quellatalo</RepositoryUrl>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AnalysisMode>All</AnalysisMode>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\AssemblyOriginatorKey.Development.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
