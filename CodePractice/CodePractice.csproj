@@ -9,10 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Computing\Computing.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Quellatalo.CombineCode.CSharp" Version="0.0.1" />
+      <ProjectReference Include="..\Quellatalo.CombineCode.CSharp\Quellatalo.CombineCode.CSharp.csproj" />
     </ItemGroup>
 
 </Project>

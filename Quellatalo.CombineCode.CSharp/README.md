@@ -10,7 +10,7 @@ Quellatalo.CombineCode.CSharp
 The project is still in early stage.
 It does not scan the local folders as much as IDEs/compilers do.
 
-Please see the requirements follow the expected code style.
+Please see the requirements to follow the expected code style.
 
 # Requirements
 
@@ -234,7 +234,7 @@ namespace CodePractice.Euler.E001MultipleOf3And5
         }
     }
 
-    class Solution
+    public class Solution
     {
         public static void Main()
         {

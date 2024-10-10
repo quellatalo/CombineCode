@@ -31,7 +31,11 @@ public class MainRewriter(string mainClassName, string mainContent) : CSharpSynt
         ArgumentNullException.ThrowIfNull(node);
         return node.DescendantNodes().OfType<ClassDeclarationSyntax>().Any(v => v.Identifier.Text == mainClassName)
             ? base.VisitNamespaceDeclaration(node)
-            : node.WithMembers(node.Members.Add(SyntaxFactory.ClassDeclaration(mainClassName).WithMembers([_main])))
+            : node.WithMembers(
+                    node.Members.Add(
+                        SyntaxFactory.ClassDeclaration(mainClassName)
+                            .WithModifiers([SyntaxFactory.Token(SyntaxKind.PublicKeyword)])
+                            .WithMembers([_main])))
                 .NormalizeWhitespace();
     }
 
