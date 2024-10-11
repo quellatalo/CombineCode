@@ -7,7 +7,7 @@ namespace Quellatalo.CombineCode.CSharp;
 /// <summary>
 /// A <see cref="CSharpSyntaxRewriter"/> that converts file-scoped namespace to block-scoped namespace.
 /// </summary>
-public class CombinedCodeRewriter : CSharpSyntaxRewriter
+class CombinedCodeRewriter : CSharpSyntaxRewriter
 {
     /// <inheritdoc/>
     public override SyntaxNode Visit(SyntaxNode? node)
