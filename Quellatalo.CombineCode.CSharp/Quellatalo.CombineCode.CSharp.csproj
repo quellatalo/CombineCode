@@ -2,12 +2,15 @@
   <Import Project="../Core.props" />
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/quellatalo</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/quellatalo/CombineCode/tree/master/Quellatalo.CombineCode.CSharp</PackageProjectUrl>
     <PackageTags>scan;collect;combine;multiple;cs;csharp;source;code;files;into one;file;</PackageTags>
     <Description>Provides libraries to combine written local code into one file for online submission.</Description>
+    <PackageReleaseNotes>
+      - MainRewriter now creates the 'MainClass' with `public` keyword.
+    </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="."/>

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Authors>Quellatalo Nin</Authors>
     <Copyright>quellatalo@gmail.com</Copyright>
-    <RepositoryUrl>https://github.com/quellatalo</RepositoryUrl>
+    <RepositoryUrl>https://github.com/quellatalo/CombineCode</RepositoryUrl>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <AnalysisMode>All</AnalysisMode>
