@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 		AssemblyOriginatorKey.Development.snk = AssemblyOriginatorKey.Development.snk
 		README.md = README.md
 		Tests.props = Tests.props
+		test-report.sh = test-report.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{CA165E78-0175-4E5E-9820-61A06B1DD1F1}"
