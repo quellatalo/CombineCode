@@ -7,7 +7,9 @@
     <Nullable>enable</Nullable>
     <AnalysisMode>All</AnalysisMode>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\AssemblyOriginatorKey.Development.snk</AssemblyOriginatorKeyFile>
+    <is_release Condition="'$(Configuration)' == 'Release' And '$(CI)' != 'true'">true</is_release>
+    <AssemblyOriginatorKeyFile Condition="'$(is_release)' != 'true'">$(MSBuildThisFileDirectory)\AssemblyOriginatorKey.Development.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile Condition="'$(is_release)' == 'true'">$(MSBuildThisFileDirectory)\AssemblyOriginatorKey.Production.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">

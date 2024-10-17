@@ -7,6 +7,22 @@ It's available on [NuGet](https://www.nuget.org/packages/Quellatalo.CombineCode.
 
 The other two projects [CodePractice](CodePractice) and [Computing](Computing) are examples demonstrated below.
 
+# Usage
+
+```csharp
+const string TransformedFile = "Transformed.cs";
+CSharpSourceInfo sourceInfo = CSharpSourceInfo.ReadFromFile("Path/To/File.cs");
+
+// combine the targeted source file and its dependencies to one string.
+string combinedCode = sourceInfo.CompileToOneSource();
+
+// write the combined code to file
+File.WriteAllText(TransformedFile, combinedCode);
+
+// open the newly written file by using the OS's default behavior
+FileUtils.OpenFile(TransformedFile);
+```
+
 # Example
 
 Imagine we want to challenge [HackerRank's Euler project](https://www.hackerrank.com/contests/projecteuler), starting with [the first problem](https://www.hackerrank.com/contests/projecteuler/challenges/euler001/problem).

@@ -3,7 +3,12 @@
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(is_release)' != 'true'">
     <PublicKey>00240000048000009400000006020000002400005253413100040000010001003d0d621310a9f4441be9d64e028dcf46ef4390ca3c56e50de1a5cb8c120fd4aad9e2b5bd1899ccf93616b3cc0caa8a2b8e4f9722896e5e17df529d643e9e022681ea03f92fda3d996cf2d39d577805dd3da18a5bcab523c39bb21b98cd64b284a5b4317f0887a5f1c9fc03f257edd0c8225951add1f2959e5d99bc878cb377b2</PublicKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(is_release)' == 'true'">
+    <PublicKey>002400000480000094000000060200000024000052534131000400000100010071a845d4a57e65c35fe453c30af9527ce2716f5b9da06aa73a23a327f9c2afa4456b016431a925daadfdae6ce494192e1a73c93405e19fd0c8186b35665c7c0f41aeb7578112058a99bb6fe49c9e24e3eafc9d49dc84274473950cde62e23e17e14d3197c7240815f5131607733647079853eec27f40296b79d5569b03b915b4</PublicKey>
   </PropertyGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="$(AssemblyName).Tests" />

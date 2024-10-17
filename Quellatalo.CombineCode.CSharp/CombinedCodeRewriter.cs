@@ -10,10 +10,9 @@ namespace Quellatalo.CombineCode.CSharp;
 class CombinedCodeRewriter : CSharpSyntaxRewriter
 {
     /// <inheritdoc/>
-    public override SyntaxNode Visit(SyntaxNode? node)
+    public override SyntaxNode? Visit(SyntaxNode? node)
     {
-        ArgumentNullException.ThrowIfNull(node);
-        if (node.SyntaxTree.GetRoot() == node)
+        if (node != null && node.SyntaxTree.GetRoot() == node)
         {
             var usingsOutsideNamespace = node.DescendantNodes()
                 .OfType<UsingDirectiveSyntax>()
@@ -48,7 +47,7 @@ class CombinedCodeRewriter : CSharpSyntaxRewriter
         return base.Visit(node);
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     public override SyntaxNode VisitFileScopedNamespaceDeclaration(FileScopedNamespaceDeclarationSyntax node)
     {
         ArgumentNullException.ThrowIfNull(node);
