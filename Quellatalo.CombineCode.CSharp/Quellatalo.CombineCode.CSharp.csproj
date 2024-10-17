@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../Core.props" />
   <PropertyGroup>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Version>0.0.6</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
