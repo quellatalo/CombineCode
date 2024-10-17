@@ -22,7 +22,8 @@ public class CSharpSourceInfo
     CSharpSourceInfo(string sourceFilePath)
     {
         SourceFileInfo = new FileInfo(sourceFilePath);
-        SyntaxNode = s_combinedCodeRewriter.Visit(CSharpSyntaxTree.ParseText(File.ReadAllText(sourceFilePath)).GetRoot());
+        SyntaxNode =
+            s_combinedCodeRewriter.Visit(CSharpSyntaxTree.ParseText(File.ReadAllText(sourceFilePath)).GetRoot());
     }
 
     /// <summary>
@@ -33,7 +34,7 @@ public class CSharpSourceInfo
     /// <summary>
     /// Gets the <see cref="SyntaxNode"/>.
     /// </summary>
-    public SyntaxNode SyntaxNode { get; }
+    public SyntaxNode? SyntaxNode { get; }
 
     /// <summary>
     /// Reads a <see cref="CSharpSourceInfo"/> from file.
@@ -68,14 +69,14 @@ public class CSharpSourceInfo
     public string CompileToOneSource(CSharpSyntaxRewriter? rewriter = null)
     {
         var dependencies = InSolutionDependencies();
-        var nodes = ReadFromFiles(dependencies).Select(info => info.SyntaxNode);
+        var nodes = ReadFromFiles(dependencies.Except([SourceFileInfo.FullName])).Select(info => info.SyntaxNode);
         var builder = new StringBuilder();
         foreach (var node in nodes)
         {
-            builder.AppendLine(node.ToFullString());
+            builder.AppendLine(node?.ToFullString());
         }
 
-        return builder.AppendLine((rewriter is null ? SyntaxNode : rewriter.Visit(SyntaxNode)).ToFullString())
+        return builder.AppendLine((rewriter is null ? SyntaxNode : rewriter.Visit(SyntaxNode))?.ToFullString())
             .ToString();
     }
 
@@ -100,7 +101,7 @@ public class CSharpSourceInfo
 
     IEnumerable<string> InSolutionDirectDependencies()
     {
-        var usingDirectives = SyntaxNode.DescendantNodes().OfType<UsingDirectiveSyntax>().ToArray();
+        var usingDirectives = SyntaxNode?.DescendantNodes().OfType<UsingDirectiveSyntax>().ToArray() ?? [];
         foreach (var usingDirective in usingDirectives)
         {
             DirectoryInfo directoryInfo = new(
@@ -122,7 +123,7 @@ public class CSharpSourceInfo
             }
         }
 
-        var usedTypes = SyntaxNode.DescendantNodes().OfType<TypeSyntax>().Select(d => d.ToString()).Distinct();
+        var usedTypes = SyntaxNode?.DescendantNodes().OfType<TypeSyntax>().Select(d => d.ToString()).Distinct() ?? [];
         foreach (string usedType in usedTypes)
         {
             string[] dependencyPath = usedType.Split('.');

@@ -19,11 +19,7 @@ public class MainRewriter(string mainClassName, string mainContent) : CSharpSynt
                 SyntaxFactory.Token(SyntaxKind.StaticKeyword)))
         .WithBody(
             SyntaxFactory.Block(
-                CSharpSyntaxTree.ParseText(mainContent)
-                    .GetRoot()
-                    .DescendantNodes()
-                    .OfType<ExpressionStatementSyntax>()
-                    .First()));
+                CSharpSyntaxTree.ParseText(mainContent).GetRoot().DescendantNodes().OfType<StatementSyntax>()));
 
     /// <inheritdoc/>
     public override SyntaxNode? VisitNamespaceDeclaration(NamespaceDeclarationSyntax node)
