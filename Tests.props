@@ -1,0 +1,19 @@
+<Project>
+  <Import Project=".props" />
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- CA1707: Identifiers should not contain underscores  -->
+    <!-- CA1822: Mark members as static -->
+    <!-- CA1861: Avoid constant arrays as arguments -->
+    <!-- CS8002: Strong-named assemblies referencing non-strong named assemblies -->
+    <NoWarn>$(NoWarn);CA1707;CA1822;CA1861;CS8002</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.12.6" />
+    <PackageReference Include="TUnit" Version="0.1.1056" />
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+  </ItemGroup>
+</Project>

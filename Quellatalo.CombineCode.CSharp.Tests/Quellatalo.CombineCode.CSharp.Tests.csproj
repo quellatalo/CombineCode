@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../Tests.props" />
+  <ItemGroup>
+    <ProjectReference Include="..\Quellatalo.CombineCode.CSharp\Quellatalo.CombineCode.CSharp.csproj" />
+  </ItemGroup>
+</Project>

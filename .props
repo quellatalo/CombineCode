@@ -5,6 +5,7 @@
     <RepositoryUrl>https://github.com/quellatalo/CombineCode</RepositoryUrl>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <AnalysisMode>All</AnalysisMode>
     <SignAssembly>true</SignAssembly>
     <is_release Condition="'$(Configuration)' == 'Release' And '$(CI)' != 'true'">true</is_release>

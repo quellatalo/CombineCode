@@ -35,6 +35,6 @@ Please visit [the project repository](https://github.com/quellatalo/CombineCode)
 It's just some standard styling rules:
 - [SA1402FileMayOnlyContainASingleType](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1402.md)
 - [SA1649FileNameMustMatchTypeName](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1649.md)
+- [IDE0130: Namespace does not match folder structure](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0130)
 
 Basically, namespaces should have matching folders, and types should have matching `.cs` files.
-
