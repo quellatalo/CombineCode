@@ -15,8 +15,8 @@ if [ -d "$outDir" ]; then
 fi
 
 echo "Testing .NET solution..."
+export CI=true
 dotnet test -c Release -- --coverage --results-directory "$outDir" --coverage-output-format cobertura
-
 dotnet tool run reportgenerator "-reports:TestResults/**/*.xml" "-targetDir:$reportDir" "-reportTypes:HtmlInline_AzurePipelines"
 echo "Reports generated in $reportDir"
 read -rp "Press enter to exit"
