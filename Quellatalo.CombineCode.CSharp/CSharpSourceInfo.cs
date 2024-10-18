@@ -13,8 +13,7 @@ public class CSharpSourceInfo
     /// <summary>
     /// Gets the <see cref="DirectoryInfo"/> of the solution.
     /// </summary>
-    public static readonly DirectoryInfo SolutionDirectory =
-        FileUtils.FindFromParentDirectories("*.sln")?[0].Directory!;
+    public static readonly DirectoryInfo SolutionDirectory = FileUtils.FindFromParentDirectories("*.sln")[0].Directory!;
 
     static readonly CombinedCodeRewriter s_combinedCodeRewriter = new();
     static readonly Dictionary<string, CSharpSourceInfo> s_cachedSourceInfos = new();

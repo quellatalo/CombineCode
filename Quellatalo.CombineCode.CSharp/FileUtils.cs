@@ -24,38 +24,35 @@ public static class FileUtils
     /// </param>
     /// <param name="startingDirectory">The starting directory to start the search.</param>
     /// <param name="subDirectories">Expected subdirectories to find in.</param>
-    /// <returns>An array of strongly typed <see cref="FileInfo"/> objects.</returns>
-    public static FileInfo[]? FindFromParentDirectories(
+    /// <returns>A list of strongly typed <see cref="FileInfo"/> objects.</returns>
+    public static IReadOnlyList<FileInfo> FindFromParentDirectories(
         string searchPattern,
         string? startingDirectory = null,
         string[]? subDirectories = null)
     {
-        FileInfo[]? searchResult;
+        List<FileInfo> searchResult = [];
         var directory = new DirectoryInfo(startingDirectory ?? Directory.GetCurrentDirectory());
         do
         {
-            var scanDirectory = directory;
+            List<DirectoryInfo> candidates;
             if (subDirectories != null)
             {
-                foreach (string subDirectory in subDirectories)
-                {
-                    var scanResult = scanDirectory?.GetDirectories(subDirectory, s_enumerationOptions);
-                    if (scanResult == null)
-                    {
-                        break;
-                    }
-
-                    if (scanResult.Length > 0)
-                    {
-                        scanDirectory = scanResult[0];
-                    }
-                }
+                IEnumerable<DirectoryInfo> subCandidates = [directory];
+                subCandidates = subDirectories.Aggregate(
+                    subCandidates,
+                    (current, subDirectory)
+                        => current.SelectMany(info => info.GetDirectories(subDirectory, s_enumerationOptions)));
+                candidates = subCandidates.ToList();
+            }
+            else
+            {
+                candidates = [directory];
             }
 
-            searchResult = scanDirectory?.GetFiles(searchPattern, s_enumerationOptions);
-            directory = directory?.Parent;
+            searchResult.AddRange(candidates.SelectMany(info => info!.GetFiles(searchPattern, s_enumerationOptions)));
+            directory = directory.Parent;
         }
-        while (searchResult is { Length: 0 });
+        while (directory != null);
 
         return searchResult;
     }
